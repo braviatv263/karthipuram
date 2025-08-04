@@ -22,7 +22,9 @@
 
         /* Hero Section Styling */
         .hero-section {
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%); /* Dark gradient */
+            /* Background image with a dark gradient overlay for text readability */
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%), url('kp.jpg') center/cover no-repeat;
+            background-size: cover; /* Ensure the image covers the section */
             color: #e2e8f0; /* Light gray text */
             padding: 6rem 2rem;
             text-align: center;
@@ -88,6 +90,23 @@
             padding: 0 2rem;
         }
 
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr 1fr; /* Two columns on medium screens */
+            }
+        }
+        @media (min-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr 1fr 1fr; /* Three columns on large screens */
+            }
+        }
+
         /* Feature Card Styling */
         .feature-card {
             background-color: #ffffff;
@@ -139,6 +158,7 @@
             text-align: center;
             transition: all 0.3s ease-in-out;
             border: 1px solid #e2e8f0;
+            /* Removed height: 100% to allow it to size naturally within the grid */
         }
         .image-feature-card:hover {
             transform: translateY(-8px) scale(1.01);
@@ -287,7 +307,7 @@
 
     <!-- Main Content Sections -->
     <main class="section-container">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="content-grid">
 
             <!-- Legal Information Card (English) -->
             <div class="feature-card">
@@ -366,8 +386,28 @@
                 </p>
             </div>
 
-            <!-- Empty card to maintain grid layout if needed -->
-            <div class="hidden lg:block"></div>
+            <!-- New Sixth Card: Alternative Investment Destination -->
+            <div class="feature-card">
+                <h2 class="text-emerald-600">Unlock New Opportunities!</h2>
+                <p class="text-lg leading-relaxed">
+                    Have a residential layout that offers better value than Karthipuram?
+                    We invite you to showcase your alternative investment destination here, absolutely FREE!
+                </p>
+                <p class="text-lg leading-relaxed mt-4">
+                    Connect with us at <a href="mailto:contact@karthipuram.net" class="text-emerald-500 hover:text-emerald-700 font-semibold">contact@karthipuram.net</a>
+                    to share your proposal and reach a wider audience looking for smart investments!
+                </p>
+                <h2 class="text-emerald-600 mt-6">புதிய வாய்ப்புகளைத் திறக்கவும்!</h2>
+                <p class="text-lg leading-relaxed">
+                    கார்த்திபுரத்தை விட சிறந்த மதிப்புள்ள குடியிருப்பு மனைப்பிரிவு உங்களிடம் உள்ளதா?
+                    உங்கள் மாற்று முதலீட்டு இடத்தைப் பற்றி இங்கே, முற்றிலும் இலவசமாக காட்சிப்படுத்த உங்களை அழைக்கிறோம்!
+                </p>
+                <p class="text-lg leading-relaxed mt-4">
+                    புத்திசாலித்தனமான முதலீடுகளைத் தேடும் பரந்த பார்வையாளர்களைச் சென்றடைய உங்கள் முன்மொழிவைப் பகிர
+                    <a href="mailto:contact@karthipuram.net" class="text-emerald-500 hover:text-emerald-700 font-semibold">contact@karthipuram.net</a>
+                    என்ற மின்னஞ்சல் வழியாக எங்களைத் தொடர்பு கொள்ளவும்!
+                </p>
+            </div>
 
         </div>
     </main>
