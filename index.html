@@ -15,14 +15,17 @@
             flex-direction: column; /* Stack vertically on small screens */
             min-height: 100vh; /* Ensure full viewport height */
         }
-        .half-section {
+        .content-section {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Align content to the top */
             align-items: center;
             padding: 2rem;
             text-align: center;
             flex: 1; /* Allows sections to take equal space */
+            border-radius: 0.75rem; /* Rounded corners for the container */
+            margin: 0.5rem; /* Smaller margin for three columns */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
         .image-container {
             width: 100%;
@@ -50,58 +53,96 @@
             body {
                 flex-direction: row; /* Arrange horizontally on larger screens */
             }
-            .half-section {
-                height: 100vh; /* Each section takes full viewport height */
+            .content-section {
+                flex: 1; /* Each section takes equal width */
+                min-height: 100vh; /* Maintain height for each column */
+            }
+            .content-wrapper {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                flex-grow: 1;
             }
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- First Half: Mission and Contact Information -->
-    <div class="half-section bg-blue-700 text-white rounded-lg m-4 shadow-lg">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Karthipuram</h1>
-        <p class="text-xl md:text-2xl mb-4 leading-relaxed">
-            The goal of this website is to empower the general public to make informed decisions
-            before investing their hard-earned money at Karthipuram.
-        </p>
-        <p class="text-xl md:text-2xl mb-6 leading-relaxed">
-            If you have filed any legal litigations against Karthipuram, please email us the details at
-            <a href="mailto:legal@karthipuram.net" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">legal@karthipuram.net</a>.
-            We will review and, after due verification from public court records,
-            we will post your legal notices on this website.
-        </p>
-        <p class="text-xl md:text-2xl mb-6 leading-relaxed">
-            If you are a real estate developer and want to promote your site near Neelambur,
-            contact us at <a href="mailto:contact@karthipuram.net" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">contact@karthipuram.net</a>
-            with your proposal why your site is better than Karthipuram.
-            We will post it here for the awareness of the general public WITHOUT ANY COST.
-        </p>
-        <p class="text-lg md:text-xl font-medium mb-4">
-            For general queries, please contact us at:
-        </p>
-        <a href="mailto:contact@karthipuram.net" class="text-2xl md:text-3xl font-semibold underline hover:text-blue-200 transition-colors duration-300">
-            contact@karthipuram.net
-        </a>
-        <p class="mt-8 text-lg opacity-80">
-            You will soon find more content on this website. Please await further information before investing your hard-earned money at Karthipuram.
-        </p>
-    </div>
-
-    <!-- Second Half: Clickable Image -->
-    <div class="half-section bg-gray-100 rounded-lg m-4 shadow-lg">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-blue-700">Explore G Square Bliss Plots</h2>
-        <div class="image-container">
-            <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank" class="w-full h-full flex items-center justify-center">
-                <img
-                    src="GSquare-Bliss.png"
-                    alt="G Square Bliss Residential Plots"
-                    class="w-full h-full object-cover"
-                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';"
-                />
+    <div class="content-wrapper md:flex">
+        <!-- First Section: Mission and Contact Information (English) -->
+        <div class="content-section bg-blue-700 text-white">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Karthipuram</h1>
+            <p class="text-xl md:text-2xl mb-4 leading-relaxed">
+                The goal of this website is to empower the general public to make informed decisions
+                before investing their hard-earned money at Karthipuram.
+            </p>
+            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
+                If you have filed any legal litigations against Karthipuram, please email us the details at
+                <a href="mailto:legal@karthipuram.net" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">legal@karthipuram.net</a>.
+                We will review and, after due verification from public court records,
+                we will post your legal notices on this website.
+            </p>
+            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
+                If you are a real estate developer and want to promote your site near Neelambur,
+                contact us at <a href="mailto:contact@karthipuram.net" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">contact@karthipuram.net</a>
+                with your proposal why your site is better than Karthipuram.
+                We will post it here for the awareness of the general public WITHOUT ANY COST.
+            </p>
+            <p class="text-lg md:text-xl font-medium mb-4">
+                For general queries, please contact us at:
+            </p>
+            <a href="mailto:contact@karthipuram.net" class="text-2xl md:text-3xl font-semibold underline hover:text-blue-200 transition-colors duration-300">
+                contact@karthipuram.net
             </a>
+            <p class="mt-8 text-lg opacity-80">
+                You will soon find more content on this website. Please await further information before investing your hard-earned money at Karthipuram.
+            </p>
         </div>
-        <p class="mt-4 text-sm text-gray-600">Click the image to visit the G Square Bliss website.</p>
+
+        <!-- Second Section: Mission and Contact Information (Tamil Translation) -->
+        <div class="content-section bg-blue-600 text-white">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6">கார்த்திபுரம் (Karthipuram)</h1>
+            <p class="text-xl md:text-2xl mb-4 leading-relaxed">
+                இந்த வலைத்தளத்தின் நோக்கம், பொதுமக்கள் தங்கள் கடினமாக சம்பாதித்த பணத்தை கார்த்திபுரத்தில் முதலீடு செய்வதற்கு முன் தகவலறிந்த முடிவுகளை எடுக்க உதவுவதாகும்.
+            </p>
+            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
+                கார்த்திபுரத்திற்கு எதிராக நீங்கள் ஏதேனும் சட்டரீதியான வழக்குகளைத் தாக்கல் செய்திருந்தால்,
+                legal@karthipuram.net என்ற மின்னஞ்சல் முகவரிக்கு விவரங்களை அனுப்பவும்.
+                பொது நீதிமன்ற பதிவுகளில் இருந்து உரிய சரிபார்ப்புக்குப் பிறகு,
+                உங்கள் சட்ட அறிவிப்புகளை இந்த வலைத்தளத்தில் வெளியிடுவோம்.
+            </p>
+            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
+                நீங்கள் ஒரு ரியல் எஸ்டேட் டெவலப்பராக இருந்து, நீலாம்பூர் அருகே உங்கள் வீட்டு மனைகளை விளம்பரப்படுத்த விரும்பினால்,
+                contact@karthipuram.net என்ற மின்னஞ்சல் முகவரிக்கு உங்கள் வீட்டு மனைகளை கார்த்திபுரத்தை விட ஏன் சிறந்தது என்ற உங்கள் முன்மொழிவுடன் எங்களை தொடர்பு கொள்ளவும்.
+                பொதுமக்களின் விழிப்புணர்வுக்காக அதை இங்கே எந்த செலவும் இல்லாமல் வெளியிடுவோம்.
+            </p>
+            <p class="text-lg md:text-xl font-medium mb-4">
+                பொதுவான கேள்விகளுக்கு, எங்களை தொடர்பு கொள்ளவும்:
+            </p>
+            <a href="mailto:contact@karthipuram.net" class="text-2xl md:text-3xl font-semibold underline hover:text-blue-200 transition-colors duration-300">
+                contact@karthipuram.net
+            </a>
+            <p class="mt-8 text-lg opacity-80">
+                இந்த வலைத்தளத்தில் விரைவில் மேலும் பல உள்ளடக்கங்களைக் காண்பீர்கள்.
+                கார்த்திபுரத்தில் உங்கள் கடினமாக சம்பாதித்த பணத்தை முதலீடு செய்வதற்கு முன் மேலும் தகவல்களுக்காக காத்திருங்கள்.
+            </p>
+        </div>
+
+        <!-- Third Section: Clickable Image -->
+        <div class="content-section bg-gray-100 text-gray-800">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-blue-700">Explore G Square Bliss Plots</h2>
+            <div class="image-container">
+                <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank" class="w-full h-full flex items-center justify-center">
+                    <img
+                        src="GSquare-Bliss.png"
+                        alt="G Square Bliss Residential Plots"
+                        class="w-full h-full object-cover"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';"
+                    />
+                </a>
+            </div>
+            <p class="mt-4 text-sm text-gray-600">Click the image to visit the G Square Bliss website.</p>
+        </div>
     </div>
 
 </body>
