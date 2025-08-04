@@ -57,10 +57,10 @@
             z-index: 1;
         }
         .hero-section .hero-text {
-            font-size: 1.6rem;
+            font-size: 1.6rem; /* Default size, will be overridden by utility classes */
             line-height: 1.7;
             max-width: 900px;
-            margin: 0 auto 2.5rem auto;
+            margin: 0 auto 1.5rem auto; /* Adjusted margin for two text blocks */
             position: relative;
             z-index: 1;
         }
@@ -68,7 +68,6 @@
             font-size: 2rem;
             font-weight: 700;
             color: #fcd34d; /* Vibrant yellow accent */
-            margin-top: 2.5rem;
             padding: 1.2rem 2rem;
             border: 3px solid #fcd34d;
             border-radius: 0.75rem;
@@ -76,11 +75,16 @@
             box-shadow: 0 0 15px rgba(252, 211, 77, 0.6);
             position: relative;
             z-index: 1;
-            animation: pulseBorder 2s infinite alternate;
+            animation: pulseBorder 2s infinite alternate, glow 1.5s infinite alternate; /* Added glow animation */
+            flex-shrink: 0; /* Prevent shrinking in flex container */
         }
         @keyframes pulseBorder {
             from { box-shadow: 0 0 15px rgba(252, 211, 77, 0.6); }
             to { box-shadow: 0 0 25px rgba(252, 211, 77, 0.9); }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fcd34d, 0 0 10px #fcd34d; }
+            to { text-shadow: 0 0 10px #fcd34d, 0 0 20px #fcd34d; }
         }
 
         /* Section Container for Main Content */
@@ -98,14 +102,10 @@
         }
         @media (min-width: 768px) {
             .content-grid {
-                grid-template-columns: 1fr 1fr; /* Two columns on medium screens */
+                grid-template-columns: 1fr 1fr; /* Two columns on medium and large screens */
             }
         }
-        @media (min-width: 1024px) {
-            .content-grid {
-                grid-template-columns: 1fr 1fr 1fr; /* Three columns on large screens */
-            }
-        }
+        /* Removed 3-column layout as per new 4-tile request */
 
         /* Feature Card Styling */
         .feature-card {
@@ -158,7 +158,6 @@
             text-align: center;
             transition: all 0.3s ease-in-out;
             border: 1px solid #e2e8f0;
-            /* Removed height: 100% to allow it to size naturally within the grid */
         }
         .image-feature-card:hover {
             transform: translateY(-8px) scale(1.01);
@@ -266,11 +265,16 @@
             .hero-section h1 {
                 font-size: 3rem;
             }
+            .hero-text-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
             .hero-section .hero-text {
                 font-size: 1.2rem;
             }
             .hero-section .emotional-message {
                 font-size: 1.5rem;
+                padding: 0.8rem 1.5rem;
             }
             .feature-card h2, .image-feature-card h2 {
                 font-size: 1.5rem;
@@ -296,52 +300,45 @@
     <!-- Hero Section -->
     <header class="hero-section">
         <h1 class="text-white">Karthipuram</h1>
-        <p class="hero-text">
-            The goal of this website is to empower the general public to make informed decisions
-            before investing their hard-earned money at Karthipuram.
+        <p class="hero-text text-xl md:text-2xl">
+            Your hard-earned money is precious. This website is dedicated to arming you with crucial facts,
+            empowering you to make truly informed decisions before investing in Karthipuram.
         </p>
-        <p class="emotional-message">
-            This is a common man's battle for justice.
+        <p class="hero-text text-xl md:text-2xl">
+            உங்கள் பணம் மிகவும் மதிப்புமிக்கது. கார்த்திபுரத்தில் முதலீடு செய்வதற்கு முன், அனைத்து உண்மைகளையும் அறிந்து, நல்ல முடிவெடுக்க இந்த வலைத்தளம் உங்களுக்கு உதவும்.
         </p>
+
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-8">
+            <p class="emotional-message">
+                This is a common man's battle for justice.
+            </p>
+            <p class="emotional-message">
+                இது ஒரு சாதாரண மனிதனின் நீதிக்கான போராட்டம்.
+            </p>
+        </div>
     </header>
 
     <!-- Main Content Sections -->
     <main class="section-container">
         <div class="content-grid">
 
-            <!-- Legal Information Card (English) -->
+            <!-- 1st Tile: Legal Information Card (English) -->
             <div class="feature-card">
-                <h2>Legal Information & Support</h2>
+                <h2>Legal Awareness for a Safer Investment</h2>
                 <p>
-                    We are compiling all legal deviations and cases pending against Karthipuram at DTCP,
-                    <a href="https://seiaa.tn.gov.in/en/SEIAA/contact-us" target="_blank" class="text-teal-500 hover:text-teal-700">SEIAA</a>,
-                    and other authorities.
+                    We are collecting all legal violations, litigations, and complaints related to Karthipuram in DTCP, SEIAA, and other departments.
                 </p>
                 <p>
-                    If you have filed any legal litigations against Karthipuram/Unnamalai Promoters, please email us the details at
-                    <a href="mailto:legal@karthipuram.net" class="text-teal-500 hover:text-teal-700">legal@karthipuram.net</a>.
-                    We will review and, after due verification from public court records,
-                    we will post your legal notices on this website without any cost.
+                    If you have initiated any legal proceedings against Karthipuram or Unnamalai Promoters, please share the details with us at <a href="mailto:legal@karthipuram.net" class="text-teal-500 hover:text-teal-700">legal@karthipuram.net</a>. Upon receipt, we will review your submission, verify it against public court records, and publish your legal notices on this website — at no cost to you.
+                </p>
+                <p class="text-lg leading-relaxed mt-4">
+                    This initiative will help prospective investors avoid unnecessary legal complications when investing in Karthipuram in the future.
                 </p>
             </div>
 
-            <!-- Developer/Plot Owner Promotion Card (English) -->
-            <div class="feature-card">
-                <h2>Promote Your Residential Layout</h2>
-                <p>
-                    Any real estate developer or residential plot owner within a 10 km radius of Karthipuram can contact us via
-                    <a href="mailto:contact@karthipuram.net" class="text-teal-500 hover:text-teal-700">contact@karthipuram.net</a>
-                    email and tell us why your residential layout is a better choice and value for money than Karthipuram.
-                    We will post that information on this site as a public service without any cost.
-                </p>
-                <p class="mt-auto">
-                    You will soon find more content on this website. Please await further information before investing your hard-earned money at Karthipuram.
-                </p>
-            </div>
-
-            <!-- G Square Bliss Promotion Card -->
+            <!-- 2nd Tile: G Square Bliss Promotion Card -->
             <div class="image-feature-card">
-                <h2>Explore G Square Bliss Plots</h2>
+                <h2>Explore G Square Bliss Neelambur</h2>
                 <div class="image-display">
                     <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank">
                         <img
@@ -355,38 +352,21 @@
                 <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank" class="action-button">Learn More</a>
             </div>
 
-            <!-- Legal Information Card (Tamil) -->
+            <!-- 3rd Tile: Legal Information Card (Tamil) -->
             <div class="feature-card">
-                <h2>சட்டத் தகவல் மற்றும் ஆதரவு</h2>
+                <h2>🛡️ நீதிக்கான ஒருங்கிணைந்த போராட்டம்</h2>
                 <p>
-                    கார்த்திபுரத்திற்கு எதிராக உள்ள அனைத்து சட்டரீதியான குறைபாடுகள் மற்றும் நிலுவையிலுள்ள வழக்குகளை DTCP,
-                    <a href="https://seiaa.tn.gov.in/en/SEIAA/contact-us" target="_blank" class="text-teal-500 hover:text-teal-700">SEIAA</a>
-                    மற்றும் பிற அதிகாரிகளிடம் இருந்து தொகுத்து வருகிறோம்.
+                    DTCP, SEIAA மற்றும் பிற துறைகளில் கார்த்திபுரம் தொடர்பான அனைத்து சட்ட மீறல்கள் மற்றும் வழக்குகளை நாங்கள் சேகரித்து வருகிறோம்.
                 </p>
                 <p>
-                    கார்த்திபுரத்திற்கு எதிராக/உண்ணாமலை ப்ரமோட்டர்ஸ் எதிராக நீங்கள் ஏதேனும் சட்டரீதியான வழக்குகளைத் தாக்கல் செய்திருந்தால்,
-                    <a href="mailto:legal@karthipuram.net" class="text-teal-500 hover:text-teal-700">legal@karthipuram.net</a> என்ற மின்னஞ்சல் முகவரிக்கு விவரங்களை அனுப்பவும்.
-                    பொது நீதிமன்ற பதிவுகளில் இருந்து உரிய சரிபார்ப்புக்குப் பிறகு,
-                    உங்கள் சட்ட அறிவிப்புகளை இந்த வலைத்தளத்தில் எந்த செலவும் இல்லாமல் வெளியிடுவோம்.
+                    நீங்கள் கார்த்திபுரம் அல்லது உண்ணாமலை பிரமோட்டர்ஸ் மீது வழக்கு தொடர்ந்திருந்தால், விவரங்களை <a href="mailto:legal@karthipuram.net" class="text-teal-500 hover:text-teal-700">legal@karthipuram.net</a>-க்கு அனுப்புங்கள். சரிபாரிப்பு செய்யப்பட்ட பிறகு, உங்கள் சட்ட அறிவிப்புகளை இந்த இணையதளத்தில் இலவசமாக வெளியிடலாம்.
+                </p>
+                <p class="text-lg leading-relaxed mt-4">
+                    இந்த முயற்சி, எதிர்காலத்தில் கார்த்திபுரத்தில் முதலீடு செய்ய விரும்புபவர்கள் தேவையற்ற சட்ட சிக்கல்களில் சிக்காமல் இருக்க உதவும்.
                 </p>
             </div>
 
-            <!-- Developer/Plot Owner Promotion Card (Tamil) -->
-            <div class="feature-card">
-                <h2>உங்கள் குடியிருப்பு மனைப்பிரிவை விளம்பரப்படுத்தவும்</h2>
-                <p>
-                    கார்த்திபுரத்திலிருந்து 10 கி.மீ சுற்றளவில் உள்ள எந்த ரியல் எஸ்டேட் டெவலப்பரும் அல்லது குடியிருப்பு மனை உரிமையாளர்களும்
-                    <a href="mailto:contact@karthipuram.net" class="text-teal-500 hover:text-teal-700">contact@karthipuram.net</a>
-                    என்ற மின்னஞ்சல் வழியாக எங்களைத் தொடர்புகொண்டு, உங்கள் குடியிருப்பு மனைப்பிரிவு கார்த்திபுரத்தை விட ஏன் சிறந்த தேர்வு மற்றும் பணத்திற்கான மதிப்பு என்பதைத் தெரிவிக்கலாம்.
-                    அந்தத் தகவலை பொதுச் சேவையாக இந்த தளத்தில் எந்தச் செலவும் இல்லாமல் வெளியிடுவோம்.
-                </p>
-                <p class="mt-auto">
-                    இந்த வலைத்தளத்தில் விரைவில் மேலும் பல உள்ளடக்கங்களைக் காண்பீர்கள்.
-                    கார்த்திபுரத்தில் உங்கள் கடினமாக சம்பாதித்த பணத்தை முதலீடு செய்வதற்கு முன் மேலும் தகவல்களுக்காக காத்திருங்கள்.
-                </p>
-            </div>
-
-            <!-- New Sixth Card: Alternative Investment Destination -->
+            <!-- 4th Tile: Unlock New Opportunities! -->
             <div class="feature-card">
                 <h2 class="text-emerald-600">Unlock New Opportunities!</h2>
                 <p class="text-lg leading-relaxed">
@@ -399,8 +379,7 @@
                 </p>
                 <h2 class="text-emerald-600 mt-6">புதிய வாய்ப்புகளைத் திறக்கவும்!</h2>
                 <p class="text-lg leading-relaxed">
-                    கார்த்திபுரத்தை விட சிறந்த மதிப்புள்ள குடியிருப்பு மனைப்பிரிவு உங்களிடம் உள்ளதா?
-                    உங்கள் மாற்று முதலீட்டு இடத்தைப் பற்றி இங்கே, முற்றிலும் இலவசமாக காட்சிப்படுத்த உங்களை அழைக்கிறோம்!
+                    கார்த்திபுரத்தில் முதலீடு செய்வதற்கு முன், நீங்கள் உண்மையிலேயே தகவலறிந்த முடிவுகளை எடுக்க உதவும் அத்தியாவசிய உண்மைகளை உங்களுக்கு வழங்கவே இந்த வலைத்தளம் உருவாக்கப்பட்டுள்ளது.
                 </p>
                 <p class="text-lg leading-relaxed mt-4">
                     புத்திசாலித்தனமான முதலீடுகளைத் தேடும் பரந்த பார்வையாளர்களைச் சென்றடைய உங்கள் முன்மொழிவைப் பகிர
