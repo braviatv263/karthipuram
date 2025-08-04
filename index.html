@@ -7,7 +7,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for better iframe handling and responsiveness */
+        /* Custom styles for better image handling and responsiveness */
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
@@ -24,19 +24,25 @@
             text-align: center;
             flex: 1; /* Allows sections to take equal space */
         }
-        .iframe-container {
+        .image-container {
             width: 100%;
             height: 100%; /* Take full height of its parent */
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0; /* Background for iframe area */
+            background-color: #f0f0f0; /* Background for image area */
+            border-radius: 0.75rem; /* Rounded corners for the container */
+            overflow: hidden; /* Ensures image corners match container */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
-        iframe {
+        .image-container img {
             width: 100%;
             height: 100%;
-            border-radius: 0.75rem; /* Rounded corners for the iframe */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+        }
+        .image-container img:hover {
+            transform: scale(1.05); /* Slightly zoom on hover */
         }
 
         /* Responsive adjustments for larger screens */
@@ -66,25 +72,20 @@
         </p>
     </div>
 
-    <!-- Second Half: Embedded Website -->
+    <!-- Second Half: Clickable Image -->
     <div class="half-section bg-gray-100 rounded-lg m-4 shadow-lg">
         <h2 class="text-3xl md:text-4xl font-bold mb-6 text-blue-700">Explore G Square Bliss Plots</h2>
-        <div class="iframe-container">
-            <iframe
-                src="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/"
-                title="G Square Bliss Residential Plots"
-                loading="lazy"
-                onerror="this.style.display='none'; document.getElementById('iframe-fallback').style.display='block';"
-                class="w-full h-full"
-            ></iframe>
-            <p id="iframe-fallback" class="hidden text-red-600 text-lg p-4">
-                We apologize! The external website cannot be loaded directly here due to its security settings.
-                Please visit it directly by clicking this link:
-                <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank" class="underline text-blue-700 hover:text-blue-900">
-                    G Square Bliss Plots
-                </a>
-            </p>
+        <div class="image-container">
+            <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank" class="w-full h-full flex items-center justify-center">
+                <img
+                    src="GSquare-Bliss.png"
+                    alt="G Square Bliss Residential Plots"
+                    class="w-full h-full object-cover"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';"
+                />
+            </a>
         </div>
+        <p class="mt-4 text-sm text-gray-600">Click the image to visit the G Square Bliss website.</p>
     </div>
 
 </body>
