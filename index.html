@@ -7,187 +7,379 @@
     <meta name="description" content="Make informed decisions about investing in Karthipuram plots near Neelambur, Coimbatore. Find legal notices and compare with other developers like Unnamalai Developers and Unnamalai Promoters. Get unbiased information on plots in Coimbatore, Anbudan Karthipuram, and Vellanaippati plots.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for better image handling and responsiveness */
+        /* Custom styles for Inter font and overall layout */
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            display: flex;
-            flex-direction: column; /* Stack vertically on small screens */
-            min-height: 100vh; /* Ensure full viewport height */
-        }
-        .content-section {
+            background-color: #f8fafc; /* Very light blue-gray background */
+            color: #334155; /* Dark slate gray text */
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Align content to the top */
+            min-height: 100vh;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%); /* Dark gradient */
+            color: #e2e8f0; /* Light gray text */
+            padding: 6rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: rotateBackground 20s linear infinite;
+        }
+        @keyframes rotateBackground {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hero-section h1 {
+            font-size: 4.5rem; /* Even larger title */
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section .hero-text {
+            font-size: 1.6rem;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto 2.5rem auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section .emotional-message {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fcd34d; /* Vibrant yellow accent */
+            margin-top: 2.5rem;
+            padding: 1.2rem 2rem;
+            border: 3px solid #fcd34d;
+            border-radius: 0.75rem;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(252, 211, 77, 0.6);
+            position: relative;
+            z-index: 1;
+            animation: pulseBorder 2s infinite alternate;
+        }
+        @keyframes pulseBorder {
+            from { box-shadow: 0 0 15px rgba(252, 211, 77, 0.6); }
+            to { box-shadow: 0 0 25px rgba(252, 211, 77, 0.9); }
+        }
+
+        /* Section Container for Main Content */
+        .section-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Feature Card Styling */
+        .feature-card {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #e2e8f0;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        .feature-card h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a535c; /* Deep teal */
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+        .feature-card p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .feature-card a {
+            color: #4ecdc4; /* Bright teal link */
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .feature-card a:hover {
+            color: #3bb2b8; /* Darker teal on hover */
+        }
+
+        /* Image Feature Card Specific Styling */
+        .image-feature-card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             align-items: center;
             padding: 2rem;
             text-align: center;
-            flex: 1; /* Allows sections to take equal space */
-            border-radius: 0.75rem; /* Rounded corners for the container */
-            margin: 0.5rem; /* Smaller margin for three columns */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #e2e8f0;
         }
-        .image-container {
+        .image-feature-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        .image-feature-card h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a535c;
+            margin-bottom: 1.2rem;
+        }
+        .image-feature-card .image-display {
             width: 100%;
-            height: 100%; /* Take full height of its parent */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0; /* Background for image area */
-            border-radius: 0.75rem; /* Rounded corners for the container */
-            overflow: hidden; /* Ensures image corners match container */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            height: 300px; /* Taller image for impact */
+            margin-bottom: 1.5rem;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         }
-        .image-container img {
+        .image-feature-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the image covers the area without distortion */
-            transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+            object-fit: cover;
+            transition: transform 0.4s ease-in-out;
         }
-        .image-container img:hover {
-            transform: scale(1.05); /* Slightly zoom on hover */
+        .image-feature-card img:hover {
+            transform: scale(1.1);
+        }
+        .image-feature-card .image-caption {
+            font-size: 1rem;
+            color: #64748b;
+        }
+        .image-feature-card .action-button {
+            display: inline-block;
+            background-color: #4ecdc4; /* Bright teal button */
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(78, 205, 196, 0.4);
+        }
+        .image-feature-card .action-button:hover {
+            background-color: #3bb2b8; /* Darker teal on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(78, 205, 196, 0.6);
         }
 
-        /* Responsive adjustments for larger screens */
-        @media (min-width: 768px) {
-            body {
-                flex-direction: column; /* Keep column for overall layout */
-            }
-            .content-wrapper {
-                display: flex;
-                flex-direction: row; /* Arrange main content horizontally */
-                width: 100%;
-                flex-grow: 1;
-            }
-            .content-section {
-                min-height: 100vh; /* Maintain height for each column */
-            }
+        /* General Contact Section */
+        .general-contact-section {
+            background-color: #dbeafe; /* Light blue */
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            margin-top: 4rem;
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.1);
         }
+        .general-contact-section p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a535c;
+        }
+        .general-contact-section a {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a535c;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .general-contact-section a:hover {
+            color: #4ecdc4;
+        }
+
+        /* Disclaimer Section */
         .disclaimer-section {
-            background-color: #f8f8f8;
-            color: #333;
-            padding: 2rem;
-            margin: 1rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            background-color: #e0e7ee; /* Muted light gray */
+            color: #475569;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             text-align: left;
             font-size: 0.9rem;
-            line-height: 1.5;
-            width: calc(100% - 2rem); /* Full width minus margins */
-            max-width: 1200px; /* Optional: limit max width for readability on very large screens */
-            align-self: center; /* Center the disclaimer section */
+            line-height: 1.7;
+            width: calc(100% - 4rem); /* Adjust for padding */
+            max-width: 1200px;
+            align-self: center;
         }
         .disclaimer-section h2 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
-            margin-bottom: 1rem;
-            color: #1e3a8a; /* Dark blue for heading */
+            margin-bottom: 1.2rem;
+            color: #1a535c;
             text-align: center;
         }
         .disclaimer-section p {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+            .hero-section .hero-text {
+                font-size: 1.2rem;
+            }
+            .hero-section .emotional-message {
+                font-size: 1.5rem;
+            }
+            .feature-card h2, .image-feature-card h2 {
+                font-size: 1.5rem;
+            }
+            .feature-card p {
+                font-size: 1rem;
+            }
+            .general-contact-section p {
+                font-size: 1rem;
+            }
+            .general-contact-section a {
+                font-size: 1.5rem;
+            }
+            .disclaimer-section {
+                padding: 1.5rem;
+                width: calc(100% - 2rem);
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <div class="content-wrapper md:flex">
-        <!-- First Section: Mission and Contact Information (English) -->
-        <div class="content-section bg-blue-700 text-white">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Karthipuram</h1>
-            <p class="text-xl md:text-2xl mb-4 leading-relaxed">
-                The goal of this website is to empower the general public to make informed decisions
-                before investing their hard-earned money at Karthipuram.
-            </p>
-            <p class="text-xl md:text-2xl mb-6 leading-relaxed font-semibold text-yellow-200">
-                This is a common man's battle for justice.
-            </p>
-            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
-                We are compiling all legal deviations and cases pending against Karthipuram at DTCP,
-                <a href="https://seiaa.tn.gov.in/en/SEIAA/contact-us" target="_blank" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">SEIAA</a>,
-                and other authorities.
-            </p>
-            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
-                If you have filed any legal litigations against Karthipuram/Unnamalai Promoters, please email us the details at
-                <a href="mailto:legal@karthipuram.net" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">legal@karthipuram.net</a>.
-                We will review and, after due verification from public court records,
-                we will post your legal notices on this website without any cost.
-            </p>
-            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
-                Any real estate developer or residential plot owner within a 10 km radius of Karthipuram can contact us via
-                <a href="mailto:contact@karthipuram.net" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">contact@karthipuram.net</a>
-                email and tell us why your residential layout is a better choice and value for money than Karthipuram.
-                We will post that information on this site as a public service without any cost.
-            </p>
-            <p class="text-lg md:text-xl font-medium mb-4">
-                For general queries, please contact us at:
-            </p>
-            <a href="mailto:contact@karthipuram.net" class="text-2xl md:text-3xl font-semibold underline hover:text-blue-200 transition-colors duration-300">
-                contact@karthipuram.net
-            </a>
-            <p class="mt-8 text-lg opacity-80">
-                You will soon find more content on this website. Please await further information before investing your hard-earned money at Karthipuram.
-            </p>
-        </div>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <h1 class="text-white">Karthipuram</h1>
+        <p class="hero-text">
+            The goal of this website is to empower the general public to make informed decisions
+            before investing their hard-earned money at Karthipuram.
+        </p>
+        <p class="emotional-message">
+            This is a common man's battle for justice.
+        </p>
+    </header>
 
-        <!-- Second Section: Mission and Contact Information (Tamil Translation) -->
-        <div class="content-section bg-blue-600 text-white">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-6">கார்த்திபுரம் (Karthipuram)</h1>
-            <p class="text-xl md:text-2xl mb-4 leading-relaxed">
-                இந்த வலைத்தளத்தின் நோக்கம், பொதுமக்கள் தங்கள் கடினமாக சம்பாதித்த பணத்தை கார்த்திபுரத்தில் முதலீடு செய்வதற்கு முன் தகவலறிந்த முடிவுகளை எடுக்க உதவுவதாகும்.
-            </p>
-            <p class="text-xl md:text-2xl mb-6 leading-relaxed font-semibold text-yellow-200">
-                இது ஒரு சாமானியனின் போராட்டமாகும்.
-            </p>
-            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
-                கார்த்திபுரத்திற்கு எதிராக/உண்ணாமலை ப்ரமோட்டர்ஸ் எதிராக நீங்கள் ஏதேனும் சட்டரீதியான வழக்குகளைத் தாக்கல் செய்திருந்தால்,
-                <a href="https://seiaa.tn.gov.in/en/SEIAA/contact-us" target="_blank" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">SEIAA</a>
-                மற்றும் பிற அதிகாரிகளிடம் இருந்து தொகுத்து வருகிறோம்.
-            </p>
-            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
-                கார்த்திபுரத்திற்கு எதிராக நீங்கள் ஏதேனும் சட்டரீதியான வழக்குகளைத் தாக்கல் செய்திருந்தால்,
-                <a href="mailto:legal@karthipuram.net" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">legal@karthipuram.net</a> என்ற மின்னஞ்சல் முகவரிக்கு விவரங்களை அனுப்பவும்.
-                பொது நீதிமன்ற பதிவுகளில் இருந்து உரிய சரிபார்ப்புக்குப் பிறகு,
-                உங்கள் சட்ட அறிவிப்புகளை இந்த வலைத்தளத்தில் எந்த செலவும் இல்லாமல் வெளியிடுவோம்.
-            </p>
-            <p class="text-xl md:text-2xl mb-6 leading-relaxed">
-                கார்த்திபுரத்திலிருந்து 10 கி.மீ சுற்றளவில் உள்ள எந்த ரியல் எஸ்டேட் டெவலப்பரும் அல்லது குடியிருப்பு மனை உரிமையாளர்களும்
-                <a href="mailto:contact@karthipuram.net" class="font-semibold underline hover:text-blue-200 transition-colors duration-300">contact@karthipuram.net</a>
-                என்ற மின்னஞ்சல் வழியாக எங்களைத் தொடர்புகொண்டு, உங்கள் குடியிருப்பு மனைப்பிரிவு கார்த்திபுரத்தை விட ஏன் சிறந்த தேர்வு மற்றும் பணத்திற்கான மதிப்பு என்பதைத் தெரிவிக்கலாம்.
-                அந்தத் தகவலை பொதுச் சேவையாக இந்த தளத்தில் எந்தச் செலவும் இல்லாமல் வெளியிடுவோம்.
-            </p>
-            <p class="text-lg md:text-xl font-medium mb-4">
-                பொதுவான கேள்விகளுக்கு, எங்களை தொடர்பு கொள்ளவும்:
-            </p>
-            <a href="mailto:contact@karthipuram.net" class="text-2xl md:text-3xl font-semibold underline hover:text-blue-200 transition-colors duration-300">
-                contact@karthipuram.net
-            </a>
-            <p class="mt-8 text-lg opacity-80">
-                இந்த வலைத்தளத்தில் விரைவில் மேலும் பல உள்ளடக்கங்களைக் காண்பீர்கள்.
-                கார்த்திபுரத்தில் உங்கள் கடினமாக சம்பாதித்த பணத்தை முதலீடு செய்வதற்கு முன் மேலும் தகவல்களுக்காக காத்திருங்கள்.
-            </p>
-        </div>
+    <!-- Main Content Sections -->
+    <main class="section-container">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Third Section: Clickable Image -->
-        <div class="content-section bg-gray-100 text-gray-800">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-blue-700">Explore G Square Bliss Plots</h2>
-            <div class="image-container">
-                <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank" class="w-full h-full flex items-center justify-center">
-                    <img
-                        src="GSquare-Bliss.png"
-                        alt="G Square Bliss Residential Plots"
-                        class="w-full h-full object-cover"
-                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';"
-                    />
-                </a>
+            <!-- Legal Information Card (English) -->
+            <div class="feature-card">
+                <h2>Legal Information & Support</h2>
+                <p>
+                    We are compiling all legal deviations and cases pending against Karthipuram at DTCP,
+                    <a href="https://seiaa.tn.gov.in/en/SEIAA/contact-us" target="_blank" class="text-teal-500 hover:text-teal-700">SEIAA</a>,
+                    and other authorities.
+                </p>
+                <p>
+                    If you have filed any legal litigations against Karthipuram/Unnamalai Promoters, please email us the details at
+                    <a href="mailto:legal@karthipuram.net" class="text-teal-500 hover:text-teal-700">legal@karthipuram.net</a>.
+                    We will review and, after due verification from public court records,
+                    we will post your legal notices on this website without any cost.
+                </p>
             </div>
-            <p class="mt-4 text-sm text-gray-600">Click the image to visit the G Square Bliss website.</p>
+
+            <!-- Developer/Plot Owner Promotion Card (English) -->
+            <div class="feature-card">
+                <h2>Promote Your Residential Layout</h2>
+                <p>
+                    Any real estate developer or residential plot owner within a 10 km radius of Karthipuram can contact us via
+                    <a href="mailto:contact@karthipuram.net" class="text-teal-500 hover:text-teal-700">contact@karthipuram.net</a>
+                    email and tell us why your residential layout is a better choice and value for money than Karthipuram.
+                    We will post that information on this site as a public service without any cost.
+                </p>
+                <p class="mt-auto">
+                    You will soon find more content on this website. Please await further information before investing your hard-earned money at Karthipuram.
+                </p>
+            </div>
+
+            <!-- G Square Bliss Promotion Card -->
+            <div class="image-feature-card">
+                <h2>Explore G Square Bliss Plots</h2>
+                <div class="image-display">
+                    <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank">
+                        <img
+                            src="GSquare-Bliss.png"
+                            alt="G Square Bliss Residential Plots"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';"
+                        />
+                    </a>
+                </div>
+                <p class="image-caption">Click the image to visit the G Square Bliss website.</p>
+                <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank" class="action-button">Learn More</a>
+            </div>
+
+            <!-- Legal Information Card (Tamil) -->
+            <div class="feature-card">
+                <h2>சட்டத் தகவல் மற்றும் ஆதரவு</h2>
+                <p>
+                    கார்த்திபுரத்திற்கு எதிராக உள்ள அனைத்து சட்டரீதியான குறைபாடுகள் மற்றும் நிலுவையிலுள்ள வழக்குகளை DTCP,
+                    <a href="https://seiaa.tn.gov.in/en/SEIAA/contact-us" target="_blank" class="text-teal-500 hover:text-teal-700">SEIAA</a>
+                    மற்றும் பிற அதிகாரிகளிடம் இருந்து தொகுத்து வருகிறோம்.
+                </p>
+                <p>
+                    கார்த்திபுரத்திற்கு எதிராக/உண்ணாமலை ப்ரமோட்டர்ஸ் எதிராக நீங்கள் ஏதேனும் சட்டரீதியான வழக்குகளைத் தாக்கல் செய்திருந்தால்,
+                    <a href="mailto:legal@karthipuram.net" class="text-teal-500 hover:text-teal-700">legal@karthipuram.net</a> என்ற மின்னஞ்சல் முகவரிக்கு விவரங்களை அனுப்பவும்.
+                    பொது நீதிமன்ற பதிவுகளில் இருந்து உரிய சரிபார்ப்புக்குப் பிறகு,
+                    உங்கள் சட்ட அறிவிப்புகளை இந்த வலைத்தளத்தில் எந்த செலவும் இல்லாமல் வெளியிடுவோம்.
+                </p>
+            </div>
+
+            <!-- Developer/Plot Owner Promotion Card (Tamil) -->
+            <div class="feature-card">
+                <h2>உங்கள் குடியிருப்பு மனைப்பிரிவை விளம்பரப்படுத்தவும்</h2>
+                <p>
+                    கார்த்திபுரத்திலிருந்து 10 கி.மீ சுற்றளவில் உள்ள எந்த ரியல் எஸ்டேட் டெவலப்பரும் அல்லது குடியிருப்பு மனை உரிமையாளர்களும்
+                    <a href="mailto:contact@karthipuram.net" class="text-teal-500 hover:text-teal-700">contact@karthipuram.net</a>
+                    என்ற மின்னஞ்சல் வழியாக எங்களைத் தொடர்புகொண்டு, உங்கள் குடியிருப்பு மனைப்பிரிவு கார்த்திபுரத்தை விட ஏன் சிறந்த தேர்வு மற்றும் பணத்திற்கான மதிப்பு என்பதைத் தெரிவிக்கலாம்.
+                    அந்தத் தகவலை பொதுச் சேவையாக இந்த தளத்தில் எந்தச் செலவும் இல்லாமல் வெளியிடுவோம்.
+                </p>
+                <p class="mt-auto">
+                    இந்த வலைத்தளத்தில் விரைவில் மேலும் பல உள்ளடக்கங்களைக் காண்பீர்கள்.
+                    கார்த்திபுரத்தில் உங்கள் கடினமாக சம்பாதித்த பணத்தை முதலீடு செய்வதற்கு முன் மேலும் தகவல்களுக்காக காத்திருங்கள்.
+                </p>
+            </div>
+
+            <!-- Empty card to maintain grid layout if needed -->
+            <div class="hidden lg:block"></div>
+
         </div>
-    </div>
+    </main>
+
+    <!-- General Contact Section -->
+    <section class="general-contact-section">
+        <p>For general queries, please contact us at:</p>
+        <a href="mailto:contact@karthipuram.net">contact@karthipuram.net</a>
+    </section>
 
     <!-- Disclaimer Section -->
-    <div class="disclaimer-section">
+    <footer class="disclaimer-section">
         <h2>Disclaimer / மறுப்பு</h2>
         <p>
             This website provides general information only and is not legal, financial, or real estate advice. While we strive for accuracy, we make no warranties regarding the content's reliability or suitability. Your reliance on this information is at your own risk.
@@ -209,7 +401,7 @@
         <p>
             இந்த மறுப்பு இந்திய சட்டங்களின்படி நிர்வகிக்கப்படுகிறது. சர்ச்சைகள் கோயம்புத்தூர், தமிழ்நாடு, இந்தியாவில் உள்ள நீதிமன்றங்களின் பிரத்யேக அதிகார வரம்பிற்கு உட்பட்டவை.
         </p>
-    </div>
+    </footer>
 
 </body>
 </html>
