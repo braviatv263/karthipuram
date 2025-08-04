@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G Square Housing - Contact & Plots</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for better iframe handling and responsiveness */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* Stack vertically on small screens */
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+        .half-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            flex: 1; /* Allows sections to take equal space */
+        }
+        .iframe-container {
+            width: 100%;
+            height: 100%; /* Take full height of its parent */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* Background for iframe area */
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 0.75rem; /* Rounded corners for the iframe */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 768px) {
+            body {
+                flex-direction: row; /* Arrange horizontally on larger screens */
+            }
+            .half-section {
+                height: 100vh; /* Each section takes full viewport height */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- First Half: Contact Information -->
+    <div class="half-section bg-blue-600 text-white rounded-lg m-4 shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Contact Us for Your Query</h1>
+        <p class="text-xl md:text-2xl mb-4">
+            For any questions, feel free to reach out to us at:
+        </p>
+        <a href="mailto:info@yourcompany.com" class="text-2xl md:text-3xl font-semibold underline hover:text-blue-200 transition-colors duration-300">
+            info@yourcompany.com
+        </a>
+        <p class="mt-8 text-lg opacity-80">
+            We look forward to assisting you!
+        </p>
+    </div>
+
+    <!-- Second Half: Embedded Website -->
+    <div class="half-section bg-gray-100 rounded-lg m-4 shadow-lg">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-blue-700">Explore G Square Bliss Plots</h2>
+        <div class="iframe-container">
+            <iframe
+                src="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/"
+                title="G Square Bliss Residential Plots"
+                loading="lazy"
+                onerror="this.style.display='none'; document.getElementById('iframe-fallback').style.display='block';"
+                class="w-full h-full"
+            ></iframe>
+            <p id="iframe-fallback" class="hidden text-red-600 text-lg p-4">
+                We apologize! The external website cannot be loaded directly here due to its security settings.
+                Please visit it directly by clicking this link:
+                <a href="https://www.gsquarehousing.com/residential-plots-in-neelambur-coimbatore/g-square-bliss/" target="_blank" class="underline text-blue-700 hover:text-blue-900">
+                    G Square Bliss Plots
+                </a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
