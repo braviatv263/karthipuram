@@ -65,18 +65,19 @@
             z-index: 1;
         }
         .hero-section .emotional-message {
-            font-size: 2rem;
+            font-size: 2rem; /* Base size for larger screens */
             font-weight: 700;
             color: #fcd34d; /* Vibrant yellow accent */
             padding: 1.2rem 2rem;
             border: 3px solid #fcd34d;
             border-radius: 0.75rem;
-            display: inline-block;
             box-shadow: 0 0 15px rgba(252, 211, 77, 0.6);
             position: relative;
             z-index: 1;
             animation: pulseBorder 2s infinite alternate, glow 1.5s infinite alternate; /* Added glow animation */
-            flex-shrink: 0; /* Prevent shrinking in flex container */
+            max-width: 100%; /* Ensures it doesn't overflow its parent horizontally */
+            box-sizing: border-box; /* Ensures padding is included in width calculation */
+            text-wrap: balance; /* Helps with text wrapping */
         }
         @keyframes pulseBorder {
             from { box-shadow: 0 0 15px rgba(252, 211, 77, 0.6); }
@@ -273,8 +274,8 @@
                 font-size: 1.2rem;
             }
             .hero-section .emotional-message {
-                font-size: 1.5rem;
-                padding: 0.8rem 1.5rem;
+                font-size: 1.125rem; /* Adjusted to text-lg equivalent for better mobile fit */
+                padding: 0.8rem 1rem; /* Slightly reduced padding for mobile */
             }
             .feature-card h2, .image-feature-card h2 {
                 font-size: 1.5rem;
