@@ -209,6 +209,38 @@
             box-shadow: 0 6px 15px rgba(78, 205, 196, 0.6);
         }
 
+        /* New Floating Button Style */
+        .floating-button {
+            display: inline-block;
+            background-color: #f8fafc; /* Very light grey background */
+            color: #dc2626; /* Red text */
+            padding: 1.2rem 3rem; /* Increased padding */
+            border-radius: 0.75rem;
+            font-weight: 800; /* Extra bold */
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for light background */
+            transition: all 0.3s ease;
+            position: relative; /* For floating animation */
+            animation: float 2s ease-in-out infinite; /* Apply floating animation */
+            border: 2px solid #cbd5e1; /* A light grey border */
+            font-size: 1.25rem; /* Bigger font size */
+            align-self: center; /* Center horizontally within flex container */
+        }
+
+        .floating-button:hover {
+            background-color: #e2e8f0; /* Slightly darker grey on hover */
+            transform: translateY(-5px) scale(1.02); /* Lift and slightly enlarge on hover */
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+
         /* General Contact Section */
         .general-contact-section {
             background-color: #dbeafe; /* Light blue */
@@ -293,6 +325,10 @@
                 padding: 1.5rem;
                 width: calc(100% - 2rem);
             }
+            .floating-button {
+                padding: 0.8rem 2rem; /* Adjusted padding for mobile */
+                font-size: 1.1rem; /* Adjusted font size for mobile */
+            }
         }
     </style>
 </head>
@@ -335,6 +371,7 @@
                 <p class="text-lg leading-relaxed mt-4">
                     This initiative will help prospective investors avoid unnecessary legal complications by investing in Karthipuram in the future.
                 </p>
+                <a href="approvals-page-english.html" class="floating-button mt-auto">Read the Plot Buying Guide</a>
             </div>
 
             <!-- 2nd Tile: G Square Bliss Promotion Card -->
