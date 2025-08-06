@@ -169,6 +169,58 @@
             to { text-shadow: 0 0 10px #fcd34d, 0 0 20px #fcd34d; }
         }
 
+        /* General Contact Section */
+        .general-contact-section {
+            background-color: #dbeafe; /* Light blue */
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            margin-top: 4rem;
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .general-contact-section p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a535c;
+        }
+        .general-contact-section a {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a535c;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .general-contact-section a:hover {
+            color: #4ecdc4;
+        }
+
+        /* Disclaimer Section */
+        .disclaimer-section {
+            background-color: #e0e7ee; /* Muted light gray */
+            color: #475569;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            width: calc(100% - 4rem); /* Adjust for padding */
+            max-width: 1200px;
+            align-self: center;
+        }
+        .disclaimer-section h2 {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 1.2rem;
+            color: #1a535c;
+            text-align: center;
+        }
+        .disclaimer-section p {
+            margin-bottom: 0.8rem;
+        }
+
 
         /* Responsive adjustments */
         @media (max-width: 767px) {
@@ -231,15 +283,19 @@
                 font-size: 1.125rem;
                 padding: 0.8rem 1rem;
             }
+            /* Disclaimer Section mobile adjustments */
+            .disclaimer-section {
+                padding: 1.5rem;
+                width: calc(100% - 2rem);
+            }
         }
     </style>
 </head>
 <body>
 
-  
     <!-- Hero Section -->
     <header class="hero-section">
-        <h1 class="text-white">Karthipuram</h1>
+        <h1 class="main-title text-white">Karthipuram</h1>
         <p class="hero-text text-xl md:text-2xl">
             Your hard-earned money is precious. This website is dedicated to arming you with crucial facts,
             empowering you to make truly informed decisions before investing in Karthipuram.
@@ -388,5 +444,29 @@
         <a href="index.html" class="back-button">← Back to Main Page</a>
     </div>
 
+    <!-- General Contact Section -->
+    <section class="general-contact-section">
+        <p>For general queries, please contact us at:</p>
+        <a href="mailto:contact@karthipuram.net">contact@karthipuram.net</a>
+    </section>
+
+   <!-- Disclaimer Section -->
+    <footer class="disclaimer-section">
+        <h2>Disclaimer</h2>
+        <p>
+            This website shares information on legal violations, litigations, and complaints related to a proposed residential layout in Coimbatore, obtained from publicly available records such as court documents and government notifications. We are not affiliated with the developer, and the layout name is used only for identification. While we make reasonable efforts to ensure accuracy, visitors should verify all facts independently before making investment decisions. If you believe any information is incorrect, please contact us at <a href="mailto:legal@karthipuram.net" class="text-blue-600 hover:text-blue-800 underline">legal@karthipuram.net</a> for review.
+        </p>
+        <br>
+        <h2>பொறுப்புத்துறப்பு</h2>
+        <p>
+            இந்த இணையதளம், கோயம்புத்தூரில் உருவாகி வரும் ஒரு குடியிருப்பு மனைத் திட்டம் தொடர்பான சட்ட மீறல்கள், வழக்குகள் மற்றும் புகார்கள் குறித்த தகவல்களை பகிர்கிறது. இந்த தகவல்கள், நீதிமன்ற ஆவணங்கள் மற்றும் அரசு அறிவிப்புகள் போன்ற பொது பயன்பாட்டுக்கான பதிவுகளிலிருந்து பெறப்பட்டவை.
+        </p>
+        <p>
+            அந்த டெவலப்பருடன் எங்களுக்கு எந்த தொடர்பும் இல்லை. திட்டத்தின் பெயர் அடையாள நோக்கத்திற்காக மட்டுமே பயன்படுத்தப்பட்டுள்ளது. தரப்பட்ட தகவலின் துல்லியத்தைக் கட்டாயமாக உறுதிப்படுத்த நாங்கள் முறையான முயற்சிகளை மேற்கொண்டாலும், முதலீட்டு முடிவுகளை எடுக்கும் முன், பார்வையாளர்கள் சுயமாக தகவல்களைச் சரிபார்க்க வேண்டும்.
+        </p>
+        <p>
+            இந்த இணையதளத்தில் உள்ள எந்த தகவலும் தவறானது என்று நீங்கள் நம்பினால், <a href="mailto:legal@karthipuram.net" class="text-blue-600 hover:text-blue-800 underline">legal@karthipuram.net</a>-க்கு தொடர்பு கொள்ளவும்.
+        </p>
+    </footer>
 </body>
 </html>
