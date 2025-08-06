@@ -15,7 +15,7 @@
             background-color: #f0f4f8; /* Matching main site background */
             color: #334155; /* Matching main site text color */
             line-height: 1.8; /* Increased line height for better readability */
-            padding: 2.5rem; /* Increased overall padding */
+            padding: 0; /* Removed overall padding from body to allow hero to span full width */
         }
         .container {
             max-width: 900px;
@@ -102,9 +102,78 @@
             background-color: #334155;
         }
 
+        /* Hero Section Styling (Copied from index.html) */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%), url('kp.png') center/cover no-repeat;
+            background-size: cover;
+            color: #e2e8f0;
+            padding: 6rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: rotateBackground 20s linear infinite;
+        }
+        @keyframes rotateBackground {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hero-section h1.main-title { /* Added a class to differentiate from other h1s */
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section .hero-text {
+            font-size: 1.6rem;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto 1.5rem auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section .emotional-message {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fcd34d;
+            padding: 1.2rem 2rem;
+            border: 3px solid #fcd34d;
+            border-radius: 0.75rem;
+            box-shadow: 0 0 15px rgba(252, 211, 77, 0.6);
+            position: relative;
+            z-index: 1;
+            animation: pulseBorder 2s infinite alternate, glow 1.5s infinite alternate;
+            max-width: 100%;
+            box-sizing: border-box;
+            text-wrap: balance;
+        }
+        @keyframes pulseBorder {
+            from { box-shadow: 0 0 15px rgba(252, 211, 77, 0.6); }
+            to { box-shadow: 0 0 25px rgba(252, 211, 77, 0.9); }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fcd34d, 0 0 10px #fcd34d; }
+            to { text-shadow: 0 0 10px #fcd34d, 0 0 20px #fcd34d; }
+        }
+
+
+        /* Responsive adjustments */
         @media (max-width: 767px) {
             body {
-                padding: 1rem;
+                padding: 0; /* Adjusted for hero section */
             }
             .container {
                 padding: 1.5rem;
@@ -148,10 +217,47 @@
             .back-button {
                 margin-top: 2rem;
             }
+            /* Hero section mobile adjustments */
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+            .hero-section h1.main-title {
+                font-size: 3rem;
+            }
+            .hero-section .hero-text {
+                font-size: 1.2rem;
+            }
+            .hero-section .emotional-message {
+                font-size: 1.125rem;
+                padding: 0.8rem 1rem;
+            }
         }
     </style>
 </head>
 <body>
+
+  
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <h1 class="text-white">Karthipuram</h1>
+        <p class="hero-text text-xl md:text-2xl">
+            Your hard-earned money is precious. This website is dedicated to arming you with crucial facts,
+            empowering you to make truly informed decisions before investing in Karthipuram.
+        </p>
+        <p class="hero-text text-xl md:text-2xl">
+            உங்கள் பணம் மிகவும் மதிப்புமிக்கது. கார்த்திபுரத்தில் முதலீடு செய்வதற்கு முன், அனைத்து உண்மைகளையும் அறிந்து, நல்ல முடிவெடுக்க இந்த வலைத்தளம் உங்களுக்கு உதவும்.
+        </p>
+
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-8">
+            <p class="emotional-message">
+                An ordinary man in an extraordinary fight for justice.
+            </p>
+            <p class="emotional-message">
+                இது ஒரு சாமானியனின் நீதிக்கான போராட்டம்.
+            </p>
+        </div>
+    </header>
+
 
     <div class="container">
         <h1>🛑 Avoid Layout Traps: A Common Man’s Plot Buying Guide for Tamil Nadu</h1>
@@ -240,10 +346,8 @@
         <p>
             <strong class="sub-section-heading">🧨 Why this matters:</strong>
         </p>
-        <p>
-            If a promoter has mortgaged his layout, it signals financial instability. Such a developer will:
-        </p>
         <ul>
+            <li>If a promoter has mortgaged his layout, it signals financial instability. Such a developer will:</li>
             <li>Rush to sell, even if rules are violated</li>
             <li>Market aggressively with false promises</li>
             <li>Avoid transparency and corner you in the end</li>
